@@ -1,0 +1,70 @@
+* {
+    font-family: "Microsoft YaHei";
+    font-weight: bolder;
+    font-size: 19px;
+}
+.resume {
+    border-bottom: 1px solid #dfdfdf;
+}
+.sp {
+    margin-left: 50px;
+}
+span {
+    margin-right: 10px;
+}
+h3,
+p{
+    float: left;
+    margin: 0;
+}
+p,a{
+    font-weight: normal;
+}
+.d1 {
+    margin-top: 20px;
+}
+header {
+    position: absolute;
+    top: 0;
+    border-left: 1px solid #a8a8a8;
+    border-bottom: 1px solid #7f7f7f;
+    border-right: 1px solid #a8a8a8;
+    height: 91px;
+    width: 1887px;
+    color: #fff;
+    background-color: #666;
+}
+h1 {
+    position: relative;
+    margin: 30px;
+}
+h2 {
+    margin: 0 15px 0 0;
+    width: 148px;
+    height: 148px;
+    line-height: 148px;
+    text-align: center;
+    background-color: #ccc;
+}
+.message,
+.ablity,
+.edu,
+.exp {
+    border-top: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+    border-bottom: 1px solid #fff;
+    margin: 0;
+    width: 100%;
+}
+.floatLeft,
+span,
+div,
+h2{
+    float: left;
+}
+.padding {
+    margin-top: 83px;
+}
+.w {
+    width: 1000px;
+}

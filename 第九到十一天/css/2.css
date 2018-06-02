@@ -1,0 +1,442 @@
+body,
+h3,
+h5,
+h1,
+.polices p,
+.hoverEvent {
+    margin: 0;
+}
+header,
+.awesome,
+.polices,
+.products,
+.picture,
+.crew,
+.sendEmail,
+.footer {
+    margin: 0 auto;
+    width: 1600px;
+    text-align: center;
+}
+h3, h4 ,h1 ,.color{
+    color: #fff;
+    font-weight: normal;
+}
+header {
+    height: 990px;
+    background-image: url(../image/header.png);
+    background-size: 100% 100%;
+}
+.bgColor {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 20, 20, .65);
+}
+.bgColor h1 {
+    padding-top: 208px;
+    font-size: 62px;
+}
+.chinaTest {
+    margin-top: 52px;
+    font: 20px / 14px "Microsoft YaHei";
+}
+.chinaTest p {
+    color: #c6c2bc;
+}
+.hBox {
+    margin: 105px auto;
+    width: 970px;
+    height: 250px;
+    border: 1px solid rgba(255, 255, 255, .2);
+}
+.hBox h3 {
+    margin-top: 61px;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.hBox p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, .3);
+}
+.login {
+    padding: 0;
+}
+.login li{
+    display: inline-block;
+    margin: 0 15px;
+}
+.login li input {
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, .2);
+    padding-left: 22px;
+    width: 253px;
+    height: 50px;
+    font-size: 14px;
+    background-color: transparent;
+}
+.password {
+    color: rgba(255, 255, 255, .3);
+}
+.singUp {
+    border: none;
+    border-radius: 3px;
+    width: 125px;
+    height: 50px;
+    letter-spacing: 2px;
+    background-color: #fff;
+}
+.awesome {
+    height: 710px;
+}
+.awesome h5 {
+    margin: 89px 0 36px 0;
+    letter-spacing: 2px;
+}
+.awText {
+    font: 100 42px / 22px "Microsoft YaHei";
+    color: #000;
+}
+.icon > div {
+    display: inline-block;
+    vertical-align: top;
+    margin: 40px 90px;
+}
+.icon div img{
+    float: left;
+    margin-right: 30px;
+}
+.overflow-hidden {
+    overflow: hidden;
+    width: 355px;
+    text-align: left;
+}
+.icon p {
+    color: rgba(20, 20, 20, .7);
+}
+.icon h3 {
+    color: #000;
+}
+.polices {
+    position: relative;
+    overflow: hidden;
+    height: 800px;
+    background-image: url(../image/25.png);
+    background-size: 100% 100%;
+    text-align: left;
+}
+.Ipad {
+    position: absolute;
+    top: 104px;
+    right: -137px;
+    border-radius: 35px;
+    padding: 30px 64px 28px 60px;
+}
+.Ipad,
+.Ipad img,
+.round {
+    border: 1px solid rgba(156, 158, 156, .65);
+}
+.round {
+    position: absolute;
+    top: 297px;
+    left: 33px;
+    border-radius: 100%;
+    width: 7px;
+    height: 7px;
+}
+.polices h3,
+.polices p{
+    width: 366px;
+}
+.polices h3 {
+    font-size: 42px;
+    letter-spacing: -1px;
+}
+.poText {
+    position: relative;
+    top: 154px;
+    margin-left: 316px;
+}
+.poText > div {
+    padding: 29px 0;
+}
+.color {
+    font-size: 18px;
+    color: rgba(255, 255, 255, .7);
+}
+.check,
+.try {
+    margin-right: 30px;
+    width: 235px;
+    height: 60px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+.check {
+    border: none;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.try {
+    border: 1px solid rgba(255, 255, 255, .3);
+    background-color: transparent;
+}
+.products {
+    border-bottom: 1px solid #e7e7e7;
+    height: 580px;
+}
+.products h1 {
+    padding: 66px 0 90px 0;
+    font-size: 42px;
+}
+.productsText div{
+    display: inline-block;
+    vertical-align: super;
+    margin: 0 41px;
+    width: 254px;
+}
+.productsText div p{
+    margin-top: 46px;
+
+}
+.productsText div p,
+.picbody p {
+    font-size: 16px;
+    color: rgba(20, 20, 20, .7);
+}
+.picture {
+    height: 1000px;
+    border-bottom: 1px solid #e7e7e7;
+    text-align: left;
+}
+.picbody {
+    margin: 0 auto;
+    padding-top: 35px;
+    width: 980px;
+}
+.picbody p {
+    margin-top: 35px;
+}
+.picbody h3 {
+    font-size: 19px;
+    color: #141414;
+}
+.tree,
+.bird {
+    overflow: hidden;
+}
+.treemain,
+.birdmain {
+    padding-top: 80px;
+}
+.treemain div,
+.birdmain div {
+    margin-top: 77px;
+    line-height: 28px;
+}
+.tree {
+    float: left;
+    margin-right: 100px;
+}
+.bird {
+    float: right;
+    margin-left: 100px;
+}
+.crew {
+    height: 1084px;
+    border-bottom: 1px solid #e7e7e7;
+}
+.description {
+    text-align: center;
+}
+.description h1 {
+    padding-top: 96px;
+    font-size: 42px;
+    color: #141414;
+}
+.description p {
+    margin: 23px auto 48px auto;
+    width: 696px;
+    line-height: 26px;
+    color: rgba(20, 20, 20, .7);
+}
+.crew1 {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.hoverEvent a:hover{
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+.hoverEvent {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    font-size: 16px;
+}
+.hoverEvent h4 {
+    margin-top: 452px;
+    font-size: 20px;
+}
+.hoverEvent p {
+    font: normal 12px "Microsoft YaHei";
+    color: rgba(255, 255, 255, .4);
+    letter-spacing: 1px;
+}
+.hoverEvent a {
+    display: inline-block;
+    margin: 25px 15px 15px 0;
+    line-height: 52px;
+}
+.hoverEvent a img {
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+.hoverEvent:hover {
+    transform: translateY(-340px);
+    background-color: rgba(20, 20, 20, .65);
+}
+.people {
+    margin: 0 auto;
+    width: 1020px;
+}
+.crewRound {
+    border: 1px solid #848484;
+    border-radius: 100%;
+    width: 52px;
+    height: 52px;
+}
+.people > div {
+    float: left;
+    margin: 15px;
+    font-size: 0;
+}
+.sendEmail {
+    position: relative;
+    height: 700px;
+}
+.emailHead {
+    width: 1600px;
+    height: 70px;
+}
+.margin {
+    display: inline-block;
+    margin: 0 auto;
+}
+.message {
+    float: left;
+    margin-right: 129px;
+    width: 470px;
+    height: 560px;
+    border: 1px solid #e7e7e7;
+}
+.message h2 {
+    margin: 51px 0 32px 0;
+    letter-spacing: 2px;
+    font: 600 16px "Microsoft YaHei";
+}
+.message textarea {
+    box-sizing: border-box;
+    padding: 20px;
+    width: 370px;
+    height: 144px;
+    resize: none;
+}
+.message button {
+    margin: 15px auto;
+    border: none;
+    border-radius: 2px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    background-color: #000;
+}
+.message input,
+.message button {
+    box-sizing: border-box;
+    padding-left: 21px;
+    width: 370px;
+    height: 50px;
+}
+.message input,
+.message textarea {
+    margin: 15px auto;
+    border: 1px solid #d4d3d3;
+    font-size: 14px;
+    color: #898989;
+}
+.contacts h2{
+    font: normal 42px "Microsoft YaHei";
+}
+.contacts {
+    margin-top: 54px;
+    width: 351px;
+    text-align: left;
+}
+.contacts img,
+.contacts {
+    float: left;
+}
+.contacts > p {
+    font-size: 16px;
+    color: rgba(20, 20, 20, .7);
+}
+.contacts div p {
+    position: relative;
+    left: 20px;
+    font-size: 16px;
+    font-weight: bolder;
+}
+.padding {
+    padding-left: 20px;
+}
+.contacts div {
+    margin: 36px 0;
+}
+.local p {
+    margin: 5px 0;
+}
+.footer {
+    height: 410px;
+    background-color: #141414;
+}
+.more,
+.abouts,
+.support,
+.life {
+    display: inline-block;
+    vertical-align: text-top;
+    margin: 45px;
+    text-align: left;
+}
+.more,
+.abouts,
+.support {
+    width: 200px;
+}
+.footerMain h3 {
+    margin-top: 42px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+.footerMain p {
+    margin: 23px 0;
+    color: rgba(255, 255, 255, .3);
+}
+.life {
+    width: 270px;
+    font-size: 18px;
+}
+.life img {
+    float: left;
+    margin: 20px 30px 0 0;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}

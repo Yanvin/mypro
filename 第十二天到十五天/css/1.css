@@ -7,7 +7,7 @@ body,
 }
 body {
     min-width: 350px;
-    overflow: hidden;
+    overflow: auto;
     font-size: 14px;
     font-family: "Microsoft YaHei";
 }
@@ -88,7 +88,7 @@ i {
 .nav {
     min-height: 826px;
     position: fixed;
-    left: 270px;
+    margin-left: 100px;
     float: left;
     width: 250px;
     font-size: 14px;
@@ -243,7 +243,6 @@ i {
 .left-msg {
     float: left;
     width: 400px;
-    height: calc(100% - 80px);
     border: 1px solid #e6e9ec;
     border-left: none;
 }
@@ -349,7 +348,6 @@ i {
 }
 .right-msg {
     margin-left: 400px;
-    height: calc(100% - 80px);
     border-top: 1px solid #e6e9ec;
 
 }
@@ -429,6 +427,7 @@ i {
     border-right: 1px solid #ced0da;
 }
 .r-peo-msg {
+    height: auto;
     position: relative;
     margin-top: 70px;
     font-size: 13px;
@@ -486,25 +485,36 @@ i {
     display: inline-block;
     margin: 17px 0 0 102px;
 }
-#view-pic img {
+#view-pic img:hover {
+    opacity: .3;
+}
+#view-pic i {
+    display: inline-block;
     margin-right: 13px;
+    width: 156px;
+    height: 100px;
+    background: #323844 center no-repeat url(../images/29.png);
 }
 .send-btn,
 .send-msg {
     box-sizing: border-box;
-    position: absolute;
-    bottom: 0px;
+    /*position: absolute;*/
+    /*bottom: 20px;*/
+    float: left;
     border: 1px solid #ced0da;
+    margin-top: 20px;
+}
+.bt-in {
+    min-width: 900px;
 }
 .send-btn {
-    left: 31px;
+    margin-left: 30px;
     border-radius: 2px 0 0 2px;
     width: 53px;
     height: 52px;
     background-color: #f8f9fb;
 }
 .send-msg {
-    left: 83px;
     border-radius: 0 2px 2px 0;
     padding: 19px;
     width: 720px;

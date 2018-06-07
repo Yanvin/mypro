@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/jianli_css.css">
+</head>
+<body>
+    <header>
+        <h1>简历</h1>
+    </header>
+    <div class="message">
+        <ul>基本信息
+            <li>姓名：<span>小明</span></li>
+            <li>电话：<a href="#" class="phone"><span>133333333</span></a></li>
+            <li>邮箱：<a href="#" class="email"><span>2222222@qq.com</span></a></li>
+        </ul>
+    </div>
+    <div class="exp">
+        <button id="show">替换</button>
+        <h3>项目经验</h3>
+        <div>项目1:<p class="p">XXXXXXXXXXXXXXXXXXXXXXX</p></div>
+        <div>项目2:<p class="p1">XXXXXXXXXXXXXXXXXXXXXXX</p></div>
+        <div>项目3:<p class="p2">XXXXXXXXXXXXXXXXXXXXXXXXX</p></div>
+    </div>
+    <div>
+        <p class="p1">asdasdasd</p>
+    </div>
+    <script>
+        var p=document.getElementsByClassName("p")[0];
+        var p1=document.getElementsByClassName("p1")[0];
+        var p2=document.getElementsByClassName("p2")[0];
+        var show=document.getElementById("show");
+        var phone = document.getElementsByClassName("phone")[0];
+        var email = document.getElementsByClassName("email")[0];
+        function click() {
+            alert(this.children[0].innerHTML);
+        }
+        phone.onclick=click;
+        email.onclick=click;
+        show.onclick=function () {
+            p.innerHTML="这是项目1的实验经验";
+            p1.innerHTML="这是项目2的实验经验";
+            p2.innerHTML="这是项目3的实验经验";
+        }
+    </script>
+</body>
+</html>

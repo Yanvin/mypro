@@ -1,0 +1,51 @@
+body{
+    background-image:url(http://pic.qiantucdn.com/58pic/19/43/67/56d3e7131b20a_1024.jpg);
+    background-color:yellow;
+    background-size:100% 100%;
+}
+h1{
+    border: 1px solid pink;
+    border-radius:20px;
+    text-decoration:underline;
+    text-align:center;
+    font-style:italic ;
+    font-family:cursive;
+    text-shadow:1px 1px 2px red;
+    font-size:32px;
+    background-color:rgba(1,1,1,0.2);
+}
+a[href="#"]{
+    text-decoration:none;
+}
+a[href="#"]:visited{
+    color:blue;
+}
+.message ul{
+    font-size:30px;
+
+}
+.message ul li{
+    text-indent:30px;
+    list-style-type:circle;
+}
+.message ul li:hover{
+    color:pink;
+    border:1px solid grey;
+    width:420px;
+}
+.exp div p{
+    line-height:90%;
+    font-weight:900;
+    color:orange;
+    text-indent:20px;
+}
+.exp div p::first-letter{
+    font-size:30px;
+}
+.exp div p::after{
+    color:blue;
+    content:"...more";
+}
+.p1{
+    text-transform:capitalize;
+}

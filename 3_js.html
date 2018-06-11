@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+    <script>
+        var oDiv = document.getElementById("fade-obj");
+        var btn = document.getElementById("fade-btn");
+        var num = 10;
+        var n = 1;
+        function opacity() {
+            num--;
+            if(num===-1||num===-11){
+                clearTimeout(t);
+                num===-11?(num=10,btn.innerHTML = "淡出"):btn.innerHTML = "淡入";
+                btn.disabled = "";
+                n*=-1;
+            } else {
+                oDiv.style.opacity = n*num / 10;
+                var t = setTimeout("opacity()", 100);
+            }
+        }
+        btn.onclick = function () {
+            btn.disabled="disabled";
+            opacity();
+        }
+    </script>
+</body>
+</html>

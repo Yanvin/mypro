@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 13px;
+        }
+        #email-input {
+            padding-left: 10px;
+            width: 192px;
+            height: 34px;
+        }
+        #email-sug-wrapper {
+            border: 1px solid #A9A9A9;
+            border-top: none;
+            margin-top: -1px;
+            padding: 0;
+            width: 204px;
+        }
+        .email-list {
+            display: none;
+            margin: 0;
+            padding: 3px 0 3px 10px;
+            list-style-type: none;
+            color: #B8BCB7;
+        }
+        .email-list:hover {
+            background-color: #b3d4fc;
+        }
+
+        .select {
+            background-color: #815ee6;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <input id="email-input" type="text">
+    <ul id="email-sug-wrapper" class="email-sug">
+        <li class="email-list"></li>
+        <li class="email-list"></li>
+        <li class="email-list"></li>
+        <li class="email-list"></li>
+        <li class="email-list"></li>
+    </ul>
+</div>
+<script>
+    (function () {
+        var inputDom = document.getElementById("email-input"),
+             ul = document.getElementById("email-sug-wrapper"),
+            liList = ul.getElementsByClassName("email-list"),
+            str = null,
+            arr = null,
+            index = 0;
+
+        window.onload = function () {
+            inputDom.focus();
+        };
+        inputDom.oninput = function (e) {
+
+            str = getUserIn(inputDom);
+            arr = createInfo(str);
+            setInfo(arr, liList, index);
+            controlLi(liList);
+            controlUl(inputDom, ul);
+        };
+
+
+        inputDom.addEventListener("keydown", function (e) {
+            var arr = {38: 38, 40: 40, 13: 13, 27: 27},
+                length = liList.length;
+            if (e.which !== arr[e.which]) {
+                index = resetSelect();
+                for (var i = 0; i < length; i++) {
+                    if (i === index) {
+                        liList[i].className = "email-list select";
+                    } else {
+                        liList[i].className = "email-list";
+                    }
+                }
+            } else {
+                for (var i = 0; i < length; i++) {
+                    if (liList[i].className === "email-list select") {
+                        liList[i].className = "email-list";
+                        index = i;
+                    }
+                }
+                if (e.which === 38) {
+                    if (index === 0) {
+                        liList[length - 1].className = "email-list select";
+                    } else {
+                        liList[index - 1].className = "email-list select";
+                    }
+                    e.preventDefault();
+                }
+
+                if (e.which === 40) {
+                    if (index === (length - 1)) {
+                        liList[0].className = "email-list select";
+                    } else {
+                        liList[index + 1].className = "email-list select";
+                    }
+                    e.preventDefault();
+                }
+
+                if (e.which === 13) {
+                    inputDom.value = htmlDecode(liList[index].innerHTML);
+                    setInfo([], liList);
+                    controlLi(liList);
+                }
+                
+            }
+
+        });
+
+        ul.onclick =function (e) {
+            if (e.target.className === "email-list") {
+                inputDom.value = htmlDecode(e.target.innerHTML);
+                setInfo([], liList);
+                controlLi(liList);
+            }
+            inputDom.focus();
+        }
+    })();
+
+    function resetSelect() {
+        return 0;
+    }
+
+    function getUserIn(curEle) {
+        var str = null;
+        str = curEle.value;
+        str = str.replace(/ |　/g,"");
+        return str;
+    }
+
+    function createInfo(str) {
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'],
+            newStr = [];
+        if (str.indexOf("@") !== -1) {
+            var arr = str.split("@"),
+                leftStr = arr[0],
+                rightStr = arr[1],
+                last = arr[2];
+        }
+        for (var i = 0; i < postfixList.length; i++) {
+            if (rightStr === undefined) {
+                newStr.push(str + "@" + postfixList[i]);
+            } else {
+                if (last !== undefined) {
+                    return newStr;
+                }
+                if (postfixList[i].indexOf(rightStr) === 0) {
+                    newStr.push(leftStr + "@" + postfixList[i]);
+                } else if (rightStr.indexOf(postfixList[i]) !== -1) {
+                    for (var j = 0; j < postfixList.length; j++) {
+                        newStr.push(leftStr + "@" + postfixList[j]);
+                    }
+                    break;
+                }
+            }
+        }
+//        var newStr = postfixList.map(function (t) {
+//            if (rightStr === undefined) {
+//                return str + "@" + t;
+//            } else if (rightStr.indexOf(t) !== -1) {
+//
+//            } else {
+//                if (last !== undefined) {
+//                    return "";
+//                }
+//                if (t.indexOf(rightStr) === 0) {
+//                    return leftStr + "@" + t;
+//                } else {
+//                    return "";
+//                }
+//            }
+//        });
+        return newStr;
+    }
+
+    function setInfo(arr, setEle, index) {
+        for (var i = 0; i < setEle.length; i++) {
+            if (i === index) {
+                setEle[i].className = "email-list select";
+            } else {
+                setEle[i].className = "email-list";
+            }
+            setEle[i].innerHTML = htmlEncode(arr[i]);
+        }
+    }
+
+    function controlLi(ul) {
+        if (ul.length === undefined) {
+            if (ul.innerHTML === "") {
+                hiddenEle(ul);
+            } else {
+                showEle(ul);
+            }
+        }
+        for (var i = 0; i < ul.length; i++) {
+            if (ul[i].innerHTML === "undefined" || ul[i].innerHTML === "") {
+                hiddenEle(ul[i]);
+            } else {
+                showEle(ul[i]);
+            }
+        }
+    }
+
+    function controlUl(input, curEle) {
+        input.value === "" ? hiddenEle(curEle):showEle(curEle);
+    }
+
+    function showEle(curEle) {
+        curEle.style.display = "block";
+    }
+
+    function hiddenEle(curEle) {
+        curEle.style.display = "none"
+    }
+
+    function htmlEncode(text) {
+        var temp = document.createElement("div");
+        temp.textContent ? temp.textContent = text : temp.innerText = text;
+        temp = temp.innerHTML;
+        return temp;
+    }
+
+    function htmlDecode(text) {
+        var temp = document.createElement("div");
+        temp.innerHTML = text;
+        temp =  temp.innerText || temp.textContent;
+        return temp;
+    }
+</script>
+</body>
+</html>

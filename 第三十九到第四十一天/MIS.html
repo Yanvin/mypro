@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>销售情况</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+        html, body {
+            height: 100%;
+            position: relative;
+        }
+        #table-wrapper {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            text-align: center;
+        }
+        #table-wrapper input{
+            display: inline-block;
+            border: 0;
+            width: 50px;
+            height: 25px;
+            text-align: center;
+        }
+        #table-wrapper table td img {
+            width: 10px;
+            height: 10px;
+        }
+        #table-wrapper table,
+        #table-wrapper table td,
+        th {
+            padding: 0;
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+        #table-wrapper table td {
+            min-width: 50px;
+        }
+        #show {
+            display: none;
+            z-index: 99999;
+            position: absolute;
+            border-radius: 10px;
+            background-color: #000;
+            opacity: .5;
+            color: #fff;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        #show span {
+            display: inline-block;
+            margin: 0 10px;
+            width: 15px;
+            height: 10px;
+            border-radius: 5px;
+        }
+        #show p {
+            margin-right: 10px;
+            display: inline-block;
+            height: 20px;
+        }
+        #canvas {
+            display: inline-block;
+        }
+        #svg {
+            display: inline-block;
+        }
+        #savaBt {
+            display: none;
+            position: absolute;
+            left: 806px;
+            bottom: 20px;
+        }
+        #img{
+            display: none;
+            position: absolute;
+            width: 15px;
+            height: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="select">
+    <div id="region-radio-wrapper"></div>
+    <div id="product-radio-wrapper"></div>
+</div>
+<canvas id="canvas"></canvas>
+<svg id="svg"></svg>
+<div id="show"></div>
+<div id="table-wrapper"></div>
+<img id="img" src="img/pen.png">
+<button id="savaBt">保存</button>
+<script src="js/line.js"></script>
+<script src="js/bar.js"></script>
+<script src="js/checkbox.js"></script>
+<script src="js/table.js"></script>
+<script src="js/mouse.js"></script>
+<script src="js/saveData.js"></script>
+<script src="js/hash.js"></script>
+</body>
+</html>

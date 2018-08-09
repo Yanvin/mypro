@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //餐厅类
+    function Restaurant({cash, seats, staff}) {
+        this.cash = cash;
+        this.seats = seats;
+        this.staff = staff;
+    }
+
+    Restaurant.prototype.hire = function (Staff) {
+        this.staff.push(Staff.name);
+    };
+    Restaurant.prototype.fire = function (Staff) {
+        this.staff.splice(this.staff.indexOf(Staff.name), 1);
+    };
+
+    //职员类
+    function Staff(name, money) {
+        this.name = name;
+        this.money = money;
+        this.finshOneWork = function (work) {
+            return this.work(work);
+        }
+    }
+
+    //服务员类
+    function Waiter(name, money) {
+        Staff.call(this, name, money);
+    }
+
+    Waiter.prototype.work = function (work) {
+        if (work.length === 1) {
+            console.log("出菜：" + work);
+        } else {
+            console.log("记录点菜:" + work);
+        }
+        return work;
+    };
+
+    //厨师类
+    function Cook(name, money) {
+        Staff.call(this, name, money);
+    }
+
+    Cook.prototype.work = function (dish) {
+        console.log("炒好：" + dish);
+        return dish;
+    };
+
+    //顾客类
+    function Customer(table) {
+        this.table = table;
+    }
+
+    Customer.prototype.order = function (dishArr) {
+        console.log(this.table + "点菜");
+        var arr = [];
+        dishArr.forEach(function (t) {
+            arr.push(t.dishName);
+        });
+        return arr;
+    };
+    Customer.prototype.eat = function (food) {
+        console.log("吃:" + food)
+    };
+
+    //菜品类
+    function Dishs(dishName, firstCost, finalCost) {
+        this.dishName = dishName;
+        this.firstCost = firstCost;
+        this.finalCost = finalCost;
+    }
+    var newR = new Restaurant({
+        cash: 1000000,
+        seats: 20,
+        staff: []
+    });
+
+    var fish = new Dishs("鱼", 20, 40);
+    var veg = new Dishs("水煮菜心", 10, 25);
+    var meat = new Dishs("小炒肉片", 25, 50);
+
+    var cus1 = new Customer(1);
+    var cus1Foods = cus1.order([fish, veg, meat]);
+
+    var waiter1 = new Waiter("小王", "2500");
+    var writeFoods = waiter1.finshOneWork(cus1Foods);
+
+    var cook1 =new Cook("大厨", "4000");
+    var f1 = cook1.finshOneWork(writeFoods[0]);
+
+    newR.hire(waiter1);
+    newR.hire(cook1);
+    var ff1 = waiter1.finshOneWork(f1);
+
+    cus1.eat(ff1);
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //餐厅类
+    let setRestaurant = (function () {
+        let res = null;
+
+        function Restaurant({cash, seats, staff}) {
+            this.cash = cash;
+            this.seats = seats;
+            this.staff = staff;
+        }
+
+        Restaurant.prototype = {
+            constructor: Restaurant,
+            hire: function (Staff) {
+                this.staff.push(Staff.name);
+            },
+            fire: function (Staff) {
+                this.staff.splice(this.staff.indexOf(Staff.name), 1);
+            }
+        };
+        return {
+            createRes: function ({cash, seats, staff}) {
+                if (!res) {
+                    res = new Restaurant({cash, seats, staff});
+                }
+                return res;
+            }
+        }
+    })();
+
+    //职员类
+    let setStaff = (function () {
+        function Staff(name, money) {
+            this.name = name;
+            this.money = money;
+            this.finshOneWork = function (work) {
+                return this.work(work);
+            }
+        }
+
+        Staff.prototype.constructor = Staff;
+        return {
+            Staff: Staff
+        }
+    })();
+    //服务员类
+    let setWaiter = (function () {
+        let wai = null;
+
+        function Waiter(name, money) {
+            setStaff.Staff.call(this, name, money);
+        }
+
+        Waiter.prototype.work = function (dish) {
+            if (typeof dish === "object") {
+                var t = setTimeout(function () {
+                    console.log("记录点菜:" + dish.name);
+                    cook1.work(dish);
+                    clearTimeout(t);
+                },1000)
+            } else {
+                console.log("上菜!" + dish);
+                que.queue[0].dish = dish;
+                que.queue[0].eat();
+            }
+        };
+        return {
+            createWaiter: function (name, money) {
+                if (!wai) {
+                    wai = new Waiter(name, money);
+                }
+                return wai;
+            }
+        }
+    })();
+
+    var waiter1 = setWaiter.createWaiter("菜服务生",3000);
+    //厨师类
+    let setCook = (function () {
+        let cok = null;
+
+        function Cook(name, money) {
+            setStaff.Staff.call(this, name, money);
+        }
+
+        Cook.prototype.work = function (dish) {
+            console.log("正在煮" + dish.name);
+            let t = setTimeout(function () {
+                console.log("烹饪完成！")
+                waiter1.work(dish.name)
+            }, 2000)
+        };
+        return {
+            createWaiter: function (name, money) {
+                if (!cok) {
+                    cok = new Cook(name, money);
+                }
+                return cok;
+            }
+        }
+    })();
+    var cook1 = setCook.createWaiter("李大厨", 5000);
+    //顾客队列
+    let que = (function () {
+        let queue = [];
+        let now = null;
+
+        function AddCus(name) {
+            this.name = name;
+            this.dish = null;
+        }
+
+        function orderDish() {
+            if (!now) {
+                now = queue[0];
+                let dish = dishsList.order();
+                waiter1.work(dish);
+                console.log("顾客:" + now.name + "点菜:" + dish.name);
+            } else {
+                console.log("还有顾客没用餐完毕!");
+            }
+        }
+        function eat() {
+            if (this.dish === null) {
+                return console.log("还没有上菜!");
+            }
+            console.log("正在吃......");
+            let t = setTimeout(function () {
+                console.log("吃完了");
+                now = null;
+                queue.shift();
+                clearTimeout(t);
+            },3000)
+        }
+
+        AddCus.prototype = {
+            construcotr: AddCus,
+            orderDish: orderDish,
+            eat:eat,
+        };
+        return {
+            addCus: function (name) {
+                var c1 = new AddCus(name)
+                queue.push(c1);
+                return c1;
+            },
+            queue: queue,
+        }
+    })();
+
+    //菜品类
+    let dishsList = (function () {
+        let dishList = [];
+
+        function AddDishs(dishName, firstCost, finalCost) {
+            this.dishName = dishName;
+            this.firstCost = firstCost;
+            this.finalCost = finalCost;
+        }
+
+        function getNum(len) {
+            return Math.round(Math.random() * (len - 1));
+        }
+
+        function order() {
+            let num = getNum(dishList.length);
+            return dishList[num];
+        }
+
+        return {
+            addDishs: function (dishName, firstCost, finalCost) {
+                dishName = new AddDishs(dishName, firstCost, finalCost);
+                dishList.push({
+                    name: dishName.dishName,
+                    price: finalCost
+                });
+            },
+            order: order,
+            Lists: dishList
+        }
+    })();
+    dishsList.addDishs("鱼", 20, 40);
+    dishsList.addDishs("水煮菜心", 10, 25);
+    dishsList.addDishs("小炒肉片", 25, 40);
+    dishsList.addDishs("水煮鱼", 21, 42);
+    dishsList.addDishs("麻婆豆腐", 17, 30);
+    dishsList.addDishs("宫保鸡丁", 30, 45);
+
+    que.addCus("小王");
+    que.addCus("小李");
+    que.addCus("小楼");
+    que.addCus("小六");
+
+</script>
+</body>
+</html>

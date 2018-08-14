@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        #timeColor {
+            height: 17px;
+            width: 0;
+            background-color: #0f0;
+            transition: width 3s;
+        }
+        #cus-dishs,
+        #timeColor,
+        #cList,
+        #waiter,
+        #cook,
+        #pic {
+            position: relative;
+            display: inline-block;
+        }
+        #pic {
+            width: 131px;
+        }
+        #cus-dishs {
+            width: 220px;
+        }
+        #cus-dishs .eat {
+            width: 70px;
+        }
+        #cus-dishs i {
+            transition: width 3s;
+        }
+        #cus-dishs table,
+        #cList table,
+        #queList table{
+            border-collapse: collapse;
+        }
+        #cus-dishs tr,
+        #cList tr,
+        #queList tr{
+            text-align: center;
+        }
+        #cus-dishs th,
+        #cus-dishs td,
+        #cList th,
+        #cList td,
+        #queList th,
+        #queList td{
+            border: 1px solid #000;
+        }
+        #cList .dish {
+            width: 70px;
+        }
+        #cList i,
+        #cus-dishs i{
+            display: inline-block;
+            width: 0;
+            height: 18px;
+            background-color: #0f0;
+        }
+        #cook {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        #cList {
+            width: 150px;
+        }
+        #waiter {
+            transition: transform 0.5s;
+        }
+        #queList {
+            position: absolute;
+            display: inline-block;
+            bottom: 0;
+            left: 0;
+        }
+        #name {
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+<div>金钱<span id="money">0</span></div>
+<div id="pic">
+    <div id="name"></div>
+    <img src="img/cus.png">
+    <div id="timeColor"></div>
+</div>
+
+<div id="cus-dishs"></div>
+
+<div id="waiter">
+    <img src="img/waiter.png">
+</div>
+
+<div id="cook">
+    <img src="img/cook.png">
+    <div id="cList"></div>
+</div>
+
+<div id="queList">
+
+</div>
+<script src="main/res.js"></script>
+<script src="main/showList.js"></script>
+<script src="main/promise.js"></script>
+</body>
+</html>
